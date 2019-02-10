@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Install libraries
           command: |
-            echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
+            sudo echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
             sudo apt-get update
             sudo apt-get -t stretch-backports install -y git golang
             export GOPATH=$HOME/go
