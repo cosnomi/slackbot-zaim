@@ -10,13 +10,13 @@ jobs:
       - run:
           name: Create artifact
           command: |
-            apt-get update
-            apt-get install -y zip
+            sudo apt-get update
+            sudo apt-get install -y zip
             mkdir to_upload
             mv dist/* to_upload
             mv node_modules to_upload
             cd to_upload
-            chmod 755 ./* -R
+            sudo chmod 755 ./* -R
             mkdir -p /tmp/workspace
             zip -r /tmp/workspace/to_upload *
       - store_artifacts:
@@ -39,8 +39,8 @@ jobs:
           name: Install libraries
           command: |
             echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
-            apt-get update
-            apt-get -t stretch-backports install -y git golang
+            sudo apt-get update
+            sudo apt-get -t stretch-backports install -y git golang
             export GOPATH=$HOME/go
             echo 'export PATH='"$GOPATH"'/bin:$PATH' >> $BASH_ENV
             go get github.com/tcnksm/ghr
