@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15-stretch-slim
+      - image: circleci/node:10.15-stretch
         environment:
           TZ: Asia/Tokyo
     steps:
@@ -28,7 +28,7 @@ jobs:
             - to_upload.zip
   release:
     docker:
-      - image: circleci/node:10.15-stretch-slim
+      - image: circleci/node:10.15-stretch
         environment:
           TZ: Asia/Tokyo
     steps:
