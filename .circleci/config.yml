@@ -9,7 +9,9 @@ jobs:
       - checkout
       - run:
           name: yarn build
-          command: yarn build
+          command: |
+            yarn
+            yarn build
       - run:
           name: Create artifact
           command: |
