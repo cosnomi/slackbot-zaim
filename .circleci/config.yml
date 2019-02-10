@@ -55,6 +55,7 @@ jobs:
           name: Release
           command: |
             VERSION=$(git describe)
+            echo $VERSION
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /tmp/workspace/to_upload.zip
 workflows:
   version: 2
